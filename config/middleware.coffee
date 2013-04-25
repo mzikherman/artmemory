@@ -40,7 +40,7 @@ app.configure ->
   @use nap.middleware
   @use express.methodOverride()
   @use express.cookieParser()
-  @use express.cookieSession secret: require('./app.coffee').sessionSecret
+  @use express.cookieSession secret: "bitty"
   @use apiProxy
   @use express.bodyParser()
   @use express.static 'public'

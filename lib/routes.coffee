@@ -21,7 +21,7 @@ url = require 'url'
           res.redirect req.path
     else
       res.redirect "#{app.gravityUrl}/oauth2/authorize" +
-                   "?client_id=#{appConfig.clientId}" +
+                   "?client_id=ec39fac5f9ca9f943fd1" +
                    "&redirect_uri=#{app.rootUrl + req.path}" +
                    "&response_type=code" +
                    "&scope=offline_access"
@@ -29,9 +29,10 @@ url = require 'url'
   # Convenience middleware function to fetch an access token from Gravity or MASS
   # and store it in the session.
   fetchAccessToken = (req, res, code, codename, callback) ->
+    console.log 'here'
     oAuthUrl = "#{app[codename + 'Url']}/oauth2/access_token" +
-      "?client_id=#{encodeURIComponent(appConfig.clientId)}" +
-      "&client_secret=#{encodeURIComponent(appConfig.clientSecret)}" +
+      "?client_id=#{encodeURIComponent('ec39fac5f9ca9f943fd1')}" +
+      "&client_secret=#{encodeURIComponent('394888d7566f6521d508a586653c1d52')}" +
       "&code=#{code}" +
       "&grant_type=#{if codename is 'gravity' then 'authorization_code' else 'trust_token'}"
     request oAuthUrl, (err, authRes, body) ->

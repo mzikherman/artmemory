@@ -53,7 +53,7 @@ task 'deploy:production', 'compile assets and deploy latest to production', ->
 
 deploySafe = (env) ->
   require('./config/app').withAssetHash (assetHash) ->
-    app = "artbuyer-#{env}"
+    app = "artmemory-#{env}"
     spawnSafe "git push git@heroku.com:#{app}.git master", ->
       spawnSafe "heroku config:add COMMIT_HASH=#{assetHash} --app #{app}"
 
