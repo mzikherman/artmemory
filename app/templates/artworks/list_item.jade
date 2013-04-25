@@ -1,0 +1,99 @@
+mixin publishRequestAnnotation
+  if artwork.get('publish_change_requested_by') && artwork.get('publish_change_requested_at')
+    | (
+    = artwork.get('publish_change_requested_by').get('name')
+    | , 
+    | )
+klass = artwork.get('feature_eligible') ? 'main_row featured' : 'main_row'
+isDesign = artwork.get('category') && artwork.get('category').match(/Design/)
+if isDesign
+  - klass += ' design_object'
+tr( class=klass, id="list_item_" + artwork.get('id') )
+  td.image
+    input( type='checkbox', data-id=artwork.get('id'), 
+           checked=artwork.get('selected') ? 'checked' : undefined ).select
+    != JST['artworks/image']({ images: artwork.get('images'), artwork: artwork })
+    if artwork.get('published') && !artwork.get('private')
+      setting = 'published'
+    if !artwork.get('published') && artwork.get('private')
+      setting = 'unpublished'
+    if artwork.get('published') && artwork.get('private')
+      setting = 'unpublish_requested'
+    if !artwork.get('published') && !artwork.get('private')
+      setting = 'publish_requested'
+    select( class = 'publish_settings ' + setting )
+      option( data-setting='published', 
+              selected=(setting == 'published' || null) ) Published
+      option( data-setting='unpublished', 
+              selected=(setting == 'unpublished' || null) ) Unpublished
+      option( data-setting='publish_requested', 
+              selected=(setting == 'publish_requested' || null) ) 
+        | Publish Requested 
+        if setting == 'publish_requested'
+          mixin publishRequestAnnotation
+      option( data-setting='unpublish_requested',
+              selected=(setting == 'unpublish_requested' || null) )
+        | Unpublished Requested 
+        if setting == 'unpublish_requested'
+          mixin publishRequestAnnotation
+    .genome(class=(artwork.get('gene_count') > 9 ? 'has_genome' : '') )  
+      .genes_container
+  td.flags
+    if artwork.get('flags') && artwork.get('flags').length > 0
+      .flag.flagged
+    else
+      .flag
+    .arrow
+  td.partner.swappable
+    span.input(name='partner')= artwork.get('partner') ? artwork.get('partner').get('name') : ''
+  unless isDesign
+    td.artist.swappable
+      span.input(name='artist')= artwork.get('artist') ? artwork.get('artist').get('name') : ''
+  else
+    td.artist.design_field
+      label 
+        | Artist
+        input.artist( value=(artwork.get('artist') ? artwork.get('artist').get('name') : '') )
+          = artwork.get('artist') ? artwork.get('artist').get('name') : ''
+      label.manufacturer
+        | Manufacturer
+        input( name='manufacturer', value=artwork.get('manufacturer') )
+  td.title.swappable
+    .overflow_container
+      span(name='title')= artwork.get('title')
+  td.date.swappable
+    span(name='date')= artwork.get('date')
+  td.category
+    select(name='category')
+      option( value=null ) --
+      for category in App.Models.Artwork.CATEGORIES
+        option( value=category, selected=artwork.get('category') == category ? 'selected' : null )
+          = category
+    if artwork.get('category') && _.indexOf(App.Models.Artwork.CATEGORIES, artwork.get('category')) == -1 && artwork.get('category').length
+      .warning Currently 
+        em= artwork.get('category')
+  td.medium.swappable
+    .overflow_container
+      span(name='medium')= artwork.get('medium')
+  if artwork.get('edition_sets').length > 0
+    != JST['artworks/with_editions_columns']({ artwork: artwork })
+  else
+    != JST['artworks/without_editions_columns']({ artwork: artwork })
+  td.more_info
+    if typeof expandAdditionalInfo != 'undefined' && expandAdditionalInfo
+      button.icon.expanded
+    else
+      button.icon
+    .shifter
+      button.delete
+      button.remove_from_show.bold( data-id=artwork.get('id') )
+      if artwork.get('feature_eligible')
+        button.unfeature.bold( data-id=artwork.get('id') )
+      else
+        button.feature.bold( data-id=artwork.get('id') )
+if typeof expandAdditionalInfo != 'undefined' && expandAdditionalInfo
+  tr.additional_info.show( id="additional_info_list_item_" + artwork.get('id') )
+    != JST['artworks/additional_info_row']({ artwork: artwork })
+else
+  tr.additional_info( id="additional_info_list_item_" + artwork.get('id') )
+tr( id="flags_list_item_" + artwork.get('id'), class='flags ' )

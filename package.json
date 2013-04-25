@@ -1,0 +1,41 @@
+{
+  "name": "artbuyer",
+  "version": "0.0.1-4",
+  "private": true,
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.1.x"
+  },
+  "dependencies": {
+    "coffee-script": "*",
+    "express": "*",
+    "jade": "*",
+    "stylus": "*",
+    "nib": "*",
+    "underscore": "*",
+    "underscore.string": "*",
+    "file": "*",
+    "nap": "*",
+    "knox": "*",
+    "http-proxy": "*",
+    "request": "*",
+    "debug": "*",
+    "mkdirp": "*",
+    "pkginfo": "*",
+    "moment": "*",
+    "formidable": "*"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*",
+    "zombie": "*",
+    "glob": "*",
+    "jsdom": "*",
+    "jquery": "*",
+    "sinon": "*"
+  },
+  "subdomain": "artbuyer",
+  "scripts": {
+    "start": "app.coffee"
+  }
+}

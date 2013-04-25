@@ -1,0 +1,24 @@
+mixin artwork_headers
+  th.image.sortable(data-sortby='created_at')
+  th.flags.sortable(data-sortby='flags') 
+    .flag_img
+  th.sortable.partner(data-sortby='inventory_id') Partner
+  th.sortable.artist(data-sortby='artist') Artist
+  th.sortable.title(data-sortby='title') Title
+  th.sortable.date(data-sortby='date') Date
+  th.sortable.category(data-sortby='category') Category
+  th.sortable.medium(data-sortby='medium') Medium
+  th.sortable.dimensions(data-sortby='dimensions') Dimensions
+  th.sortable.availability(data-sortby='availability') Availability
+  th.sortable.pricing(data-sortby='pricing') Pricing
+  th.sortable.more_info More
+  
+mixin artworks_template
+  .template
+    table.artworks_list.list_view
+      thead
+        tr.main_row
+          mixin artwork_headers
+      tbody
+        tr.main_row
+    button.text.fill.apply Apply to 0 artworks

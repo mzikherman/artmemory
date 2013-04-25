@@ -1,0 +1,7 @@
+#!/bin/sh
+
+cd "$( dirname $0 )/.."
+
+# Install fresh Inertia modules
+/bin/rm -rf node_modules
+npm install

@@ -1,0 +1,10 @@
+.DS_Store
+*~
+/node_modules/
+.redcar
+public/assets
+.rvmrc
+
+#Ignore all awesome emacs files, even though they're awesome
+*#
+.#*

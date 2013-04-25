@@ -1,0 +1,23 @@
+doctype 5
+html
+  head
+    title Artsy- Your Art Buyer
+    != nap.css('all', gzipSupport)
+
+  body
+    include layout/header
+
+    #container
+      #frames
+
+    footer#footer
+
+    #scripts
+      script
+        window.USER = !{userData};
+        window.PRICE_BUCKETS = !{priceBuckets};
+        window.GRAVITY_URL = "!{gravityUrl}"
+      script(type='text/javascript', src='https://www.google.com/jsapi')
+      != nap.js('vendor', gzipSupport)
+      != nap.jst('templates', gzipSupport)
+      != nap.js('app', gzipSupport)

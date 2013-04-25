@@ -1,0 +1,154 @@
+// 
+// Styles for the artwork lists
+//
+
+@import '../base'
+
+#artworks, #uploads, #partner_show
+  
+  tbody tr
+    background-color white
+    .overflow_container > span
+      background-color white !important
+    &.main_row:nth-child(6n-2), &.additional_info:nth-child(6n-1), &.flags:nth-child(6n)
+      background-color #f7f7f7
+      .overflow_container > span
+        background-color #f7f7f7 !important
+    &:hover
+      .options
+        display block
+  
+  .editions_widget
+    top -54px
+    left -287px
+    .lip
+      right -135px
+  
+  // Publish settings
+  .publish_settings
+    width 80px
+    margin-top 15px
+    &.published
+      border-color #51B18B
+      color #017748
+    &.unpublished
+      border-color #8B8B8B
+      color #444
+    &.publish_requested, &.unpublish_requested
+      border-color #F5A555
+      color #AD5700
+    
+  // Edition partner
+  input.edition_partner
+    font-size 11px
+    width 130px
+    clear both
+    background transparent
+    display block
+    margin-left 10px
+    
+  // Tags
+  .tags
+    display block !important
+    h3
+      font-weight bold
+      margin-top 20px
+      border-top 1px solid #eee
+      padding 10px 0
+    ul
+      padding 10px 10px 0px 10px
+      border 1px solid #ccc
+      clearfix()
+      li
+        padding 5px
+        background #eee
+        float left
+        margin 0 8px 8px 0
+      .tagit-close
+        padding 0 3px 0 10px
+        font-size 15px
+        color #aaa
+        cursor pointer
+        &:hover
+          text-decoration none
+          color red
+      .tagit-new
+        background none
+        input
+          padding 5px 0
+          margin-top -5px
+          border none
+        
+  // Additional Info
+  table.artworks_list tbody tr.additional_info td textarea
+    height 503px
+  
+  // Genome
+  .genome
+    width 35px
+    height @width
+    border-radius @width
+    background-repeat no-repeat
+    background-position center center
+    background-color #b8b8b8
+    margin-top 5px
+    cursor help
+    .genes_container
+      background white
+      position absolute
+      width 1083px
+      border 3px solid #CCC
+      padding 20px
+      z-index 10
+      margin-left 70px
+      height 208px
+      margin-top -120px
+      display none
+      &::before
+        content ''
+        position absolute
+        width 100px
+        left -@width
+        height @width
+        margin-top 62px
+        z-index 10
+        background-repeat no-repeat
+        background-position right center
+      .no_genome
+        avant-garde-m()
+        font-size 18px
+        text-align center
+        padding 96px
+        color #aaa
+      ul
+        column-width 180px
+        column-gap 20px
+        height 100%
+        line-height 2em
+        li.highlight
+          color highlight-color
+        .name
+          width 176px
+          display inline-block
+          ellipsis()
+        .val
+          float right
+          avant-garde-m()
+  .genome.has_genome
+    background-color mediumpurple
+    
+  // Adjust images modal b/c no fixed header
+  .image .modal_container
+    margin-top 180px
+    
+// Template control
+#uploads
+  .artwork_controls
+    display none
+  &.with_uploads
+    .artwork_controls
+      display block
+      
+// Download original image
+table.artworks_list.list_view td.image .modal .images > ul > li
+  margin-bottom 40px
