@@ -18,7 +18,8 @@ class App.Models.Artwork extends Backbone.Model
     if @partner?.get('type') is 'Gallery' then 'for sale' else 'not for sale'
 
   defaultImage: ->
-    @get('images')?.defaultImage()
+    images = new App.Collections.ArtworkImages @get('images')
+    images.defaultImage()
 
   defaultImageUrl: (size = 'small', usePlaceholder = false) ->
     @defaultImage()?.imageUrl(size, usePlaceholder)

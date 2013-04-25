@@ -1,0 +1,17 @@
+{
+  "name": "matches-selector",
+  "main": "matches-selector.js",
+  "version": "1.0.0",
+  "devDependencies": {
+    "qunit": "~1.10"
+  },
+  "gitHead": "68fd54dc672ec4d985ee06c1cffd7e57bd9fe260",
+  "readme": "# matchesSelector helper\n\n[`matchesSelector`](https://developer.mozilla.org/en-US/docs/DOM/Element.mozMatchesSelector) is pretty hot, but has [vendor-prefix baggage](http://caniuse.com/#search=matchesSelector). This helper function takes care of that, without augmenting `Element.prototype`.\n\n``` js\nmatchesSelector( elem, selector );\n\nmatchesSelector( myElem, 'div.my-hawt-selector' );\n\n// this DOES NOT polyfill myElem.matchesSelector\n```\n",
+  "readmeFilename": "README.md",
+  "_id": "matches-selector@1.0.0",
+  "description": "[`matchesSelector`](https://developer.mozilla.org/en-US/docs/DOM/Element.mozMatchesSelector) is pretty hot, but has [vendor-prefix baggage](http://caniuse.com/#search=matchesSelector). This helper function takes care of that, without augmenting `Element.prototype`.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/desandro/matches-selector.git"
+  }
+}

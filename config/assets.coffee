@@ -24,12 +24,10 @@
     '/app/stylesheets/shared/**/*.styl'
     '/app/stylesheets/artworks/**/*.styl'
     '/app/stylesheets/artists/**/*.styl'
-    '/app/stylesheets/artwork_inquiry_requests/**/*.styl'
   ]
 
 @jst =
   templates: [
     '/app/templates/artworks/**/*.jade'
-    '/app/templates/users/**/*.jade'
     '/app/templates/artists/**/*.jade'
   ]

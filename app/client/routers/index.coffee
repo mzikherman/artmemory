@@ -1,8 +1,7 @@
 class App.Routers.Index extends Backbone.Router
 
-  _.extend @prototype, Backbone.FrameManager
+  routes:
+    '/'	:	'loadGame'
 
-  frames:
-    ''                : App.Views.Index
-
-  initialize: ->
+  loadGame: =>
+    App.Views.ArtworkLayout

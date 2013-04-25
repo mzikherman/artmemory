@@ -1,0 +1,18 @@
+{
+  "name": "doc-ready",
+  "version": "0.0.3",
+  "main": "./doc-ready.js",
+  "dependencies": {
+    "eventEmitter": ">=3",
+    "eventie": "desandro/eventie"
+  },
+  "gitHead": "fca8af9078085b89887a39110ac51c57ad720d9d",
+  "readme": "# docReady\n\nCross browser document ready helper. Supported by IE8+ and good browsers.\n\nBasically a bower-component-ized version of [dperini/ContentLoaded](https://github.com/dperini/ContentLoaded)\n\n```js\ndocReady( function() {\n  // do stuff...\n});\n```\n\n## Bower\n\ndocReady is a [Bower](https://github.com/twitter/bower) component\n\n``` bash\nbower install desandro/doc-ready\n```\n",
+  "readmeFilename": "README.md",
+  "_id": "doc-ready@0.0.3",
+  "description": "Cross browser document ready helper. Supported by IE8+ and good browsers.",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/desandro/doc-ready.git"
+  }
+}

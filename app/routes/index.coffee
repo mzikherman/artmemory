@@ -29,7 +29,6 @@ renderIndexPage = (req, res) ->
     else
       res.render 'index',
         userData: JSON.stringify userData
-        priceBuckets: JSON.stringify priceBuckets
         gravityUrl: app.gravityUrl
         gravityApiUrl: app.gravityApiUrl
         userAgent: req.headers['user-agent']

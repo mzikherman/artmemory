@@ -1,0 +1,42 @@
+{
+  "name": "packery",
+  "version": "1.0.2",
+  "author": {
+    "name": "David DeSandro / Metafizzy"
+  },
+  "main": [
+    "./js/rect.js",
+    "./js/packer.js",
+    "./js/item.js",
+    "./js/packery.js"
+  ],
+  "dependencies": {
+    "classie": "desandro/classie",
+    "doc-ready": "desandro/doc-ready#>=0.0.3",
+    "eventEmitter": ">=3",
+    "eventie": "desandro/eventie",
+    "get-size": "desandro/get-size#>=1.1.0",
+    "get-style-property": "desandro/get-style-property",
+    "jquery-bridget": "desandro/jquery-bridget#>=0.1.2",
+    "matches-selector": "desandro/matches-selector#>=0.2.0"
+  },
+  "devDependencies": {
+    "draggabilly": "desandro/draggabilly#>=1.0.0",
+    "jquery": "~1",
+    "jquery-ui-draggable": "git://gist.github.com/4985610.git",
+    "qunit": "~1"
+  },
+  "ignore": [
+    "test/",
+    "examples/"
+  ],
+  "gitHead": "75b03b63fb1a802123e57659b59fc3d924140d8d",
+  "readme": "# Packery\n\n_Bin-packing layout library_\n\nSee http://packery.metafizzy.co for complete docs and demos\n\n## Install\n\nInstall with [Bower](https://github.com/twitter/bower).\n\n``` bash\nbower install packery\n```\n\n## Commercial license\n\nPackery may be used in commercial projects and applications with the one-time purchase of a commercial license. If you are paid to do your job, and part of your job is implementing Packery, a commercial license is required.\n\nhttp://packery.metafizzy.co/license.html\n\nFor non-commercial, personal, or open source projects and applications, you may use Packery under the terms of the MIT License. You may use Packery for free.\n\n## Initialize\n\n### in JavaScript\n\n``` js\nvar container = document.querySelector('#container');\nvar myPackery = new Packery( container, {\n  // options...\n});\n```\n\n### in HTML\n\nAdd a class of `js-packery` to your element. Options can be set in JSON in `data-packery-options`.\n\n``` html\n<div class=\"js-packery\" data-packery-options='{ \"itemSelector\": \".item\" }'>\n  ...\n</div>\n```\n\n---\n\nCopyright (c) 2013 Metafizzy\n",
+  "readmeFilename": "README.md",
+  "_id": "packery@1.0.2",
+  "description": "_Bin-packing layout library_",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/metafizzy/packery.git"
+  }
+}
