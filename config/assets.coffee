@@ -7,6 +7,7 @@
     '/vendor/underscore.js'
     '/vendor/jquery.js'
     '/vendor/backbone.js'
+    '/vendor/jquery-ui.js'
     '/app/client/vendor/**/*.js'
   ]
   app: [
