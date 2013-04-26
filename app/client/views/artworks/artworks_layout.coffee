@@ -10,7 +10,7 @@ class App.Views.ArtworksLayout extends Backbone.View
     @render()
 
   events:
-    'click .start' : 'beginGame'
+    'click .start_guess_artwork' : 'beginGuessingGame'
     'click .item' : 'guess'
 
   removeFromGame:(e) =>
@@ -22,7 +22,7 @@ class App.Views.ArtworksLayout extends Backbone.View
     if model.get('artist').name == @picked
       @removeFromGame(e)
       @collection.remove model
-      @beginGame()
+      @beginGuessingGame()
     else
       alert 'nope'
 
@@ -37,8 +37,7 @@ class App.Views.ArtworksLayout extends Backbone.View
     $items = @$container.find('.item')
     $items.draggable()
     @$container.packery({
-      itemSelector: '.item',
-      gutter: 40,
+      gutter: 40
     })
     @$container.packery('bindUIDraggableEvents', $items)
       
@@ -60,7 +59,7 @@ class App.Views.ArtworksLayout extends Backbone.View
     else
       @$timer.html("#{@seconds} seconds left...")
 
-  beginGame: =>
+  beginGuessingGame: =>
     @picked = @collection.models[@generateRandom()].get('artist').name
     @$('#picker').html("Find the work by #{@picked}")
 

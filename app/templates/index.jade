@@ -1,15 +1,14 @@
 doctype 5
 html
   head
-    title Artsy Memory!
+    title Artsy Gamey
     != nap.css('all', gzipSupport)
 
   body
-    include layout/header
-      | Welcome to Artsy Memory! Study the images well, (and feel free to drag them around too!) and when you think you are ready, click 'Start'
 
     #container
-      a.href.start Start
+      button.start_guess_artwork Click here to play a game where you guess the artwork prompted by an artist
+      button.start_memory Click here to play the game of memory.
 
       #timer
 
