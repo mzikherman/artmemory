@@ -11,7 +11,9 @@ class App.Views.ArtworksLayout extends Backbone.View
 
   events:
     'click .start_guess_artwork' : 'beginGuessingGame'
+    'click .start_memory': 'beginMemory'
     'click .item' : 'guess'
+    'click a.skip': 'beginGuessingGame'
 
   removeFromGame:(e) =>
     @$container.packery('remove', $(e.currentTarget))
@@ -43,28 +45,16 @@ class App.Views.ArtworksLayout extends Backbone.View
       gutter: 40
     })
     @$container.packery('bindUIDraggableEvents', $items)
-      
-  startGame:(e) =>
-    unless @started
-      @started = true
-      @seconds = 10
-      @$timer.html("#{@seconds} seconds left...")
-      @window_tick = =>
-        @tick()
-      setInterval(@window_tick, 1000)
 
-  tick: =>
-    @seconds -= 1
-    if @seconds <= 0
-      clearInterval(@window_tick)
-      @$timer.html('Game now beginning')
-      @beginGame()
-    else
-      @$timer.html("#{@seconds} seconds left...")
+  beginMemory: =>
+    
+
 
   beginGuessingGame: =>
     @picked = @collection.models[@generateRandom()].get('artist').name
     @$('#picker').html("Find the work by #{@picked}")
+    @$('button').hide()
+    $('#guess_again').show()
 
   generateRandom: =>
     prob = Math.random()
