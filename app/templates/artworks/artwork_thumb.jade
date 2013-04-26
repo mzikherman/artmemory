@@ -1,2 +1,4 @@
-div.item
-	img( src='http://localhost:3000' + model.defaultImageUrl(), height=100 )
+div.item( data-id=model.get('id') )
+  div.flipper
+    div.front
+      img( src='http://localhost:3000' + model.defaultImageUrl(), height=100 )
