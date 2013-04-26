@@ -15,7 +15,7 @@ class App.Views.ArtworksLayout extends Backbone.View
 
   removeFromGame:(e) =>
     @$container.packery('remove', $(e.currentTarget))
-    @$container.packery()
+    @$container.packery() 
 
   guess:(e) =>
     model = @collection.get($(e.currentTarget).closest('.item').data('id'))
@@ -23,15 +23,18 @@ class App.Views.ArtworksLayout extends Backbone.View
       @removeFromGame(e)
       @collection.remove model
       @beginGuessingGame()
+      @$('#wrong_guess').hide()
     else
-      alert 'nope'
+      @$('#wrong_guess').show()
 
   render: =>
     html = ""
     for model in @collection.models
       html += JST['artworks/artwork_thumb'] model: model
+    @$('#loading').hide()
     @$container.html(html)
-    @bindDraggable()
+    @$el.imagesLoaded =>
+      @bindDraggable()
 
   bindDraggable: =>
     $items = @$container.find('.item')
